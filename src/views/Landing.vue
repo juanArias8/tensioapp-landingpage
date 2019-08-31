@@ -210,8 +210,8 @@
             <p class="flow-text">Horarios</p>
             <b>Lunes-Viernes</b>
             <small>8:00am - 5:00pm</small>
-            <b>Lunes-Viernes</b>
-            <small>8:00am - 5:00pm</small>
+            <b>Sábados</b>
+            <small>8:00am - 12:00m</small>
           </div>
 
           <div class="contact-info">
