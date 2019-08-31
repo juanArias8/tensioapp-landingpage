@@ -1,0 +1,19 @@
+@import "variables";
+
+%btn-base {
+  border-radius: 30px;
+  color: white;
+}
+
+%btn-primary {
+  @extend %btn-base;
+  background-color: $primary-color;
+  height: auto !important;
+  padding: 10px 20px 10px 20px;
+}
+
+%btn-secondary {
+  @extend %btn-base;
+  background-color: $primary-light-color;
+}
+
