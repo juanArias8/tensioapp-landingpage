@@ -38,7 +38,6 @@
     </div>
     <!--Home section-->
 
-
     <!--About section-->
     <div id="about" class="container">
       <div class="row about-mission">
@@ -124,7 +123,7 @@
           </div>
           <h4>Compra</h4>
           <p class="text-description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam delectus ea eligendi harum inventore iste
+            Escríbemos para asesorarte. <b>wpp: </b> 3207669526
           </p>
         </div>
 
@@ -134,7 +133,7 @@
           </div>
           <h4>Personaliza</h4>
           <p class="text-description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam delectus ea eligendi harum inventoreiste
+            Ingresa <a href="#">aquí</a> y dale un toque personal a tu app
           </p>
         </div>
 
@@ -144,7 +143,7 @@
           </div>
           <h4>Configura</h4>
           <p class="text-description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam delectus ea eligendi harum inventore iste
+            Déjanos tus datos y pronto nos comunicarémos contigo.
           </p>
         </div>
       </div>
@@ -161,7 +160,6 @@
       </div>
     </div>
     <!--Services section-->
-
 
     <!--Contact section-->
     <div id="contact" class="contact-container">
@@ -251,70 +249,71 @@
 </template>
 
 <script>
-  import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar'
 
-  const responseSuccessMessage = 'Operación exitosa'
-  const responseFailMessage = 'Operación fallida'
+const responseSuccessMessage = 'Operación exitosa'
+const responseFailMessage = 'Operación fallida'
 
-  export default {
-    name: 'Landing',
-    components: { Navbar },
-    data () {
-      return {
-        responseStatus: null,
-        responseMessage: '',
-        name: '',
-        email: '',
-        message: ''
+export default {
+  name: 'Landing',
+  components: { Navbar },
+  data () {
+    return {
+      responseStatus: null,
+      responseMessage: '',
+      name: '',
+      email: '',
+      message: ''
+    }
+  },
+  methods: {
+    sendCar: function (e) {
+      e.preventDefault()
+
+      if (this.checkForm()) {
+        const data = this.buildData()
+        console.log(data)
+        this.responseStatus = true
+        this.responseMessage = responseSuccessMessage
       }
     },
-    methods: {
-      sendCar: function (e) {
-        e.preventDefault()
+    checkForm: function () {
+      this.errors = []
 
-        if (this.checkForm()) {
-          const data = this.buildData()
-          this.responseStatus = true
-          this.responseMessage = responseSuccessMessage
-        }
-      },
-      checkForm: function () {
-        this.errors = []
-
-        if (!this.name) {
-          this.errors.push('Nombre es requerido')
-        }
-        if (!this.email) {
-          this.errors.push('Email es requerido')
-        }
-        if (!this.message) {
-          this.errors.push('Mensaje es requerido')
-        }
-
-        if (!this.errors.length) {
-          return true
-        }
-      },
-      buildData () {
-        return {
-          'name': this.name,
-          'email': this.email,
-          'message': this.message
-        }
-      },
-      resetForm () {
-        if (this.responseStatus) {
-          this.name = ''
-          this.email = ''
-          this.message = ''
-        }
-        setTimeout(() => {
-          this.responseStatus = null
-          this.responseMessage = ''
-        }, 3000)
+      if (!this.name) {
+        this.errors.push('Nombre es requerido')
       }
+      if (!this.email) {
+        this.errors.push('Email es requerido')
+      }
+      if (!this.message) {
+        this.errors.push('Mensaje es requerido')
+      }
+
+      if (!this.errors.length) {
+        return true
+      }
+    },
+    buildData () {
+      return {
+        'name': this.name,
+        'email': this.email,
+        'message': this.message
+      }
+    },
+    resetForm () {
+      if (this.responseStatus) {
+        this.name = ''
+        this.email = ''
+        this.message = ''
+      }
+      setTimeout(() => {
+        this.responseStatus = null
+        this.responseMessage = ''
+      }, 3000)
     }
   }
+}
 </script>
 
 <style scoped lang="scss">
@@ -438,7 +437,6 @@
   }
 
   /*Home styles*/
-
 
   /*About styles*/
   .about-vision {
@@ -591,7 +589,6 @@
   }
 
   /*Services styles*/
-
 
   /*Contact styles*/
   .contact-container {
